@@ -69,3 +69,31 @@ class LogisticRegressionL1:
         reg_loss = self.lambda_ * np.linalg.norm(self.w, ord=1)
 
         return data_loss + reg_loss
+
+    def compute_gradients(self, X, y):
+        """
+        Compute gradients of the loss w.r.t. parameters.
+
+        Parameters
+        ----------
+        X : ndarray of shape (n_samples, n_features)
+        y : ndarray of shape (n_samples,)
+
+        Returns
+        -------
+        grad_w : ndarray of shape (n_features,)
+        grad_b : float
+        """
+        n = X.shape[0]
+        probs = self.predict_proba(X)
+
+        error = probs - y
+
+        grad_w_data = (1.0 / n) * (X.T @ error)
+        grad_b = (1.0 / n) * np.sum(error)
+
+        grad_w_reg = self.lambda_ * np.sign(self.w)
+
+        grad_w = grad_w_data + grad_w_reg
+
+        return grad_w, grad_b
