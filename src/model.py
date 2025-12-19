@@ -55,3 +55,17 @@ class LogisticRegressionL1:
         -------
         loss : float
         """
+        n = X.shape[0]
+        probs = self.predict_proba(X)
+
+        # Avoid log(0)
+        eps = 1e-12
+        probs = np.clip(probs, eps, 1 - eps)
+
+        data_loss = -np.mean(
+            y * np.log(probs) + (1 - y) * np.log(1 - probs)
+        )
+
+        reg_loss = self.lambda_ * np.linalg.norm(self.w, ord=1)
+
+        return data_loss + reg_loss
