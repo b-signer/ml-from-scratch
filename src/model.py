@@ -97,3 +97,46 @@ class LogisticRegressionL1:
         grad_w = grad_w_data + grad_w_reg
 
         return grad_w, grad_b
+
+    def fit(self, X, y, lr=0.1, epochs=1000, verbose=False):
+        """
+        Train the model using batch gradient descent.
+
+        Parameters
+        ----------
+        X : ndarray of shape (n_samples, n_features)
+        y : ndarray of shape (n_samples,)
+        lr : float
+            Learning rate.
+        epochs : int
+            Number of gradient descent steps.
+        verbose : bool
+            If True, print loss periodically.
+
+        Returns
+        -------
+        losses : list of float
+            Loss value at each epoch.
+        """
+        losses = []
+
+        for epoch in range(epochs):
+            # Compute loss
+            loss = self.compute_loss(X, y)
+            losses.append(loss)
+
+            # Compute gradients
+            grad_w, grad_b = self.compute_gradients(X, y)
+
+            # Parameter update
+            self.w -= lr * grad_w
+            self.b -= lr * grad_b
+
+            if verbose and epoch % 100 == 0:
+                print(f"Epoch {epoch}: loss = {loss:.4f}")
+            
+        if verbose:
+            print("Learned weights:", self.w)
+            print("Learned bias:", self.b)
+
+        return losses
