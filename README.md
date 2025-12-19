@@ -13,8 +13,8 @@ The goal is to demonstrate a clear understanding of:
 
 ## Problem Setting
 
-Given a dataset of feature vectors $ x \in \mathbb{R}^d $ and binary labels
-$ y \in \{0,1\} $, we model the conditional probability:
+Given a dataset of feature vectors $x \in \mathbb{R}^d$ and binary labels
+$y \in \{0,1\}$, we model the conditional probability:
 
 $$
 P(y=1 \mid x) = \sigma(w^\top x + b)
