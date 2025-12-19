@@ -13,14 +13,14 @@ The goal is to demonstrate a clear understanding of:
 
 ## Problem Setting
 
-Given a dataset of feature vectors $\( x \in \mathbb{R}^d \)$ and binary labels
-$\( y \in \{0,1\} \)$, we model the conditional probability:
+Given a dataset of feature vectors $ x \in \mathbb{R}^d $ and binary labels
+$ y \in \{0,1\} $, we model the conditional probability:
 
 $$
 P(y=1 \mid x) = \sigma(w^\top x + b)
 $$
 
-where $\( \sigma(z) = \frac{1}{1 + e^{-z}} \)$ is the sigmoid function.
+where $ \sigma(z) = \frac{1}{1 + e^{-z}} $ is the sigmoid function.
 
 ---
 
@@ -34,10 +34,11 @@ $$
 \left[
 y_i \log(\hat{y}_i) + (1 - y_i)\log(1 - \hat{y}_i)
 \right]
-+ \lambda \|w\|_1$$
++ \lambda \|w\|_1
+$$
 
 
-where $\( \lambda \)$ controls sparsity.
+where $ \lambda $ controls sparsity.
 
 ---
 
