@@ -28,17 +28,13 @@ where $ \sigma(z) = \frac{1}{1 + e^{-z}} $ is the sigmoid function.
 
 We minimize the regularized empirical risk:
 
-$$
-\mathcal{L}(w, b) =
--\frac{1}{n} \sum_{i=1}^n
+$$ \mathcal{L}(w,b)=-\frac{1}{n} \sum_{i=1}^n
 \left[
-y_i \log(\hat{y}_i) + (1 - y_i)\log(1 - \hat{y}_i)
-\right]
-+ \lambda \|w\|_1
-$$
+    y_i \log (\hat{y}_i + (1-y_i)\log(1-\hat{y}_i))
+\right] +\lambda \lVert w\rVert _1 $$
 
 
-where $ \lambda $ controls sparsity.
+where $\lambda$ controls sparsity.
 
 ---
 
