@@ -20,7 +20,7 @@ $$
 P(y=1 \mid x) = \sigma(w^\top x + b)
 $$
 
-where $ \sigma(z) = \frac{1}{1 + e^{-z}} $ is the sigmoid function.
+where $\sigma(z) = \frac{1}{1 + e^{-z}}$ is the sigmoid function.
 
 ---
 
